@@ -2,8 +2,8 @@
 
 ## Preamble
 
-This guide provides a step-by-step walkthrough to build and install the [W3C
-Markup Validation Service][home] (herein refered to as *Validator*) from its
+This guide provides a step-by-step walk-through to build and install the [W3C
+Markup Validation Service][home] (herein referred to as *Validator*) from its
 source files. It assumes minimal prior system administration experience, uses
 the latest versions and includes all functionality of the validator. The target
 Linux distribution is *Ubuntu Precise*, though each step will be similar for any
