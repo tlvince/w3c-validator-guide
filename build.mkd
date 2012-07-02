@@ -29,12 +29,27 @@ Your Ubuntu virtual machine should now be up and running. Confirm by running:
 
 ## 1. Installing Validator dependencies
 
-1. Install Apache and build packages:
+1. Install build packages:
 
     sudo apt-get update
-    sudo apt-get install apache2 build-essential opensp
+    sudo apt-get install build-essential
 
-2. Install required Perl Modules:
+2. Install tidyp:
+
+    cd ~
+    wget http://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz
+    tar -xzf tidyp-1.04.tar.gz
+    cd tidyp-1.04
+    ./configure
+    make
+    sudo make install
+    sudo ldconfig
+
+3. Install validator dependencies:
+
+    sudo apt-get install libosp-dev libxml2-dev
+
+4. Install required Perl Modules:
 
     perl -MCPAN -e "install Bundle::W3C::Validator"
 
@@ -43,7 +58,9 @@ When prompted, type:
 * `yes` to pre-configure as much as possible
 * `sudo` to make modules available system-wide
 * `yes` to choose a local CPAN mirror
-* `y` to install JSON version 2
+* `y` to install JSON::XS
+
+## 2. Install Validator
 
 ## References
 
