@@ -9,7 +9,7 @@ the latest versions and includes all functionality of the validator. The target
 Linux distribution is *Ubuntu Precise*, though each step will be similar for any
 distribution.
 
-## 0. Installing Ubuntu
+## Installing Ubuntu
 
 *Note*: this section can be skipped if you're already familiar with installing
 Ubuntu and/or have a Linux system running.
@@ -27,7 +27,9 @@ Your Ubuntu virtual machine should now be up and running. Confirm by running:
 
     vagrant ssh
 
-## 1. Installing Validator dependencies
+## Installing Validator
+
+### 1. Installing Validator dependencies
 
 1. Install build packages:
 
@@ -62,7 +64,7 @@ When prompted, type:
 * `yes` to choose a local CPAN mirror
 * `y` to install JSON::XS
 
-## 2. Install Validator
+### 2. Install Validator
 
 1. Download the Validator and the sgml-lib DTD library:
 
@@ -78,7 +80,7 @@ When prompted, type:
     sudo mv htdocs/ share/ httpd/cgi-bin/ /usr/local/validator
     sudo mv ../validator-1.1/htdocs/sgml-lib /usr/local/validator/htdocs/
 
-## 3. Configure and test the Validator
+### 3. Configure and test Validator
 
 1. Copy the default configuration:
 
@@ -98,15 +100,35 @@ following option in the `validator.conf` file:
 
 Some HTML output should be printed to screen.
 
-## 4. Set up web server
+## Optional
+
+Now Validator should be installed and ready to go.
+
+The following sections provide guides to optional but common usages of
+Validator.
+
+### Validator.nu HTML5 validation
+
+1. Install Validator.nu's build dependencies:
+
+    sudo apt-get install mercurial subversion default-jre
+
+2. Install Validator.nu:
+
+    mkdir -p ~/build/checker
+    cd ~/build/checker
+    hg clone https://bitbucket.org/validator/build build
+    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+    python build/build.py all
+    python build/build.py all
+
+### Set up a web server
 
 Here, we'll be using Apache but the same principles apply to any web server.
 
-1. Install Apache:
+1. Install Apache and its Perl bindings:
 
-    sudo apt-get install apache2
-
-2. 
+    sudo apt-get install apache2 libapache2-mod-perl2
 
 ## References
 
@@ -114,3 +136,4 @@ Here, we'll be using Apache but the same principles apply to any web server.
   [OpenSP]: http://sourceforge.net/projects/openjade/
   [vagrant]: http://vagrantup.com/
   [vagrantdl]: http://downloads.vagrantup.com/tags/v1.0.3
+  [validator.nu]: http://about.validator.nu/
