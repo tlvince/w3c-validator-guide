@@ -99,8 +99,8 @@ When prompted, type:
 
 2. Edit `/etc/w3c/validator.conf` as necessary.
 
-Note, if you plan to validate documents on a private network, enable the
-following option in the `validator.conf` file:
+    Note, if you plan to validate documents on a private network, enable the
+    following option in the `validator.conf` file:
 
         Allow Private IPs = yes
 
@@ -131,17 +131,17 @@ Validator.
         export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
         python build/build.py all
 
-*Note*, if you encounter a Java exception, run the build script again:
+    *Note*, if you encounter a Java exception, run the build script again:
 
-    python build/build.py all
+        python build/build.py all
 
-Validator.nu should now be running on port 8888:
+    Validator.nu should now be running on port 8888:
 
-    INFO::Started SocketConnector@0.0.0.0:8888
+        INFO::Started SocketConnector@0.0.0.0:8888
 
-Confirm by killing the server (CTRL+C) and re-starting it with:
+    Confirm by killing the server (CTRL+C) and re-starting it with:
 
-    python build/build.py run
+        python build/build.py run
 
 3. Configure Validator to use the Validator.nu engine by uncommenting the
    following line from `/etc/w3c/validator.conf`:
