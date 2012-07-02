@@ -87,7 +87,7 @@ When prompted, type:
 2. Install the Validator:
 
         sudo mkdir -p /usr/local/validator
-        sudo mv htdocs/ share/ httpd/cgi-bin/ /usr/local/validator
+        sudo mv htdocs/ share/ httpd/ /usr/local/validator
         sudo mv ../validator-1.1/htdocs/sgml-lib /usr/local/validator/htdocs/
 
 ### 3. Configure and test Validator
@@ -108,11 +108,10 @@ When prompted, type:
 
         /usr/local/validator/cgi-bin/check uri=http://www.w3.org
 
-Some HTML output should be printed to screen.
+If some HTML output is printed to screen, Validator is installed and ready to
+go.
 
 ## Optional
-
-Now Validator should be installed and ready to go.
 
 The following sections provide guides to optional but common usages of
 Validator.
@@ -143,11 +142,11 @@ Validator.
 
         python build/build.py run
 
-3. Configure Validator to use the Validator.nu engine by uncommenting the
-   following line from `/etc/w3c/validator.conf`:
+3. Configure Validator to use the Validator.nu engine by adding the following
+   line in `/etc/w3c/validator.conf`:
 
         <External>
-        HTML5 = http://localhost:8888/html5/
+        HTML5 = http://localhost:8888/
         </External>
 
 ### Set up a web server
@@ -158,6 +157,21 @@ Here, we'll be using Apache but the same principles apply to any web server.
 
         sudo apt-get install apache2 libapache2-mod-perl2
 
+2. Copy Validator's HTTP server configuration:
+
+        sudo cp ~/build/validator-1.3/httpd/conf/httpd.conf /etc/w3c/
+        sudo ln -s /etc/w3c/httpd.conf /etc/apache2/conf.d/w3c-validator.conf
+        sudo ln -s /usr/local/validator/htdocs/ /var/www/w3c-validator
+
+3. Restart Apache:
+
+        sudo apachectl graceful
+
+Validator should now be set up and ready to go. Browse to
+[http://localhost/w3c-validator][localhost] (or
+[http://localhost:8080/w3c-validator][localhost8080] if running in Vagrant) to
+see it running.
+
 ## References
 
   [home]: http://validator.w3.org/
@@ -165,3 +179,5 @@ Here, we'll be using Apache but the same principles apply to any web server.
   [vagrant]: http://vagrantup.com/
   [vagrantdl]: http://downloads.vagrantup.com/tags/v1.0.3
   [validator.nu]: http://about.validator.nu/
+  [locahost]: http://localhost/w3c-validator/
+  [locahost8080]: http://localhost:8080/w3c-validator/
