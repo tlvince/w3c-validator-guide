@@ -1,0 +1,53 @@
+# Building the W3C Markup Validation Service from source
+
+## Preamble
+
+This guide provides a step-by-step walkthrough to build and install the [W3C
+Markup Validation Service][home] (herein refered to as *Validator*) from its
+source files. It assumes minimal prior system administration experience, uses
+the latest versions and includes all functionality of the validator. The target
+Linux distribution is *Ubuntu Precise*, though each step will be similar for any
+distribution.
+
+## 0. Installing Ubuntu
+
+*Note*: this section can be skipped if you're already familiar with installing
+Ubuntu and/or have a Linux system running.
+
+We will be using a [Vagrant][] managed VirtualBox install as a base system.
+
+1. Download and install Vagrant from a [pre-built package]
+2. From the command line, set up an Ubuntu Precise instance with:
+
+    vagrant box add precise32 http://files.vagrantup.com/precise32.box
+    vagrant init
+    vagrant up
+
+Your Ubuntu virtual machine should now be up and running. Confirm by running:
+
+    vagrant ssh
+
+## 1. Installing Validator dependencies
+
+1. Install Apache and build packages:
+
+    sudo apt-get update
+    sudo apt-get install apache2 build-essential opensp
+
+2. Install required Perl Modules:
+
+    perl -MCPAN -e "install Bundle::W3C::Validator"
+
+When prompted, type:
+
+* `yes` to pre-configure as much as possible
+* `sudo` to make modules available system-wide
+* `yes` to choose a local CPAN mirror
+* `y` to install JSON version 2
+
+## References
+
+  [home]: http://validator.w3.org/
+  [OpenSP]: http://sourceforge.net/projects/openjade/
+  [vagrant]: http://vagrantup.com/
+  [vagrantdl]: http://downloads.vagrantup.com/tags/v1.0.3
