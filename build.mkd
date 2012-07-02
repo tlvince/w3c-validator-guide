@@ -74,10 +74,23 @@ When prompted, type:
 
 2. Install the Validator:
 
-    sudo mkdir -p /usr/local/validator /etc/w3c
+    sudo mkdir -p /usr/local/validator
     sudo mv htdocs/ share/ httpd/cgi-bin/ /usr/local/validator
-    sudo cp /usr/local/validator/htdocs/config/* /etc/w3c/
     sudo mv ../validator-1.1/htdocs/sgml-lib /usr/local/validator/htdocs/
+
+## 3. Configure and test the Validator
+
+1. Copy the default configuration:
+
+    sudo mkdir -p /etc/w3c
+    sudo cp /usr/local/validator/htdocs/config/* /etc/w3c/
+
+2. Edit `/etc/w3c/validator.conf` as necessary.
+
+Note, if you plan to validate documents on a private network, enable the
+following option in the `validator.conf` file:
+
+    Allow Private IPs = yes
 
 3. Test the Validator's command line tool:
 
@@ -85,13 +98,15 @@ When prompted, type:
 
 Some HTML output should be printed to screen.
 
-## 3. Set up web server
+## 4. Set up web server
 
 Here, we'll be using Apache but the same principles apply to any web server.
 
 1. Install Apache:
 
     sudo apt-get install apache2
+
+2. 
 
 ## References
 
