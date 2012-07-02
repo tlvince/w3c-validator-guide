@@ -37,6 +37,8 @@ Your Ubuntu virtual machine should now be up and running. Confirm by running:
 2. Install tidyp:
 
     cd ~
+    mkdir build
+    cd build
     wget http://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz
     tar -xzf tidyp-1.04.tar.gz
     cd tidyp-1.04
@@ -61,6 +63,35 @@ When prompted, type:
 * `y` to install JSON::XS
 
 ## 2. Install Validator
+
+1. Download the Validator and the sgml-lib DTD library:
+
+    cd ~/build
+    wget http://validator.w3.org/validator.tar.gz http://validator.w3.org/sgml-lib.tar.gz
+    tar -xzf validator.tar.gz
+    tar -xzf sgml-lib.tar.gz
+    cd validator-1.3
+
+2. Install the Validator:
+
+    sudo mkdir -p /usr/local/validator /etc/w3c
+    sudo mv htdocs/ share/ httpd/cgi-bin/ /usr/local/validator
+    sudo cp /usr/local/validator/htdocs/config/* /etc/w3c/
+    sudo mv ../validator-1.1/htdocs/sgml-lib /usr/local/validator/htdocs/
+
+3. Test the Validator's command line tool:
+
+    /usr/local/validator/cgi-bin/check uri=http://www.w3.org
+
+Some HTML output should be printed to screen.
+
+## 3. Set up web server
+
+Here, we'll be using Apache but the same principles apply to any web server.
+
+1. Install Apache:
+
+    sudo apt-get install apache2
 
 ## References
 
