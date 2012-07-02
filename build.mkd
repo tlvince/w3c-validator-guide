@@ -27,6 +27,16 @@ Your Ubuntu virtual machine should now be up and running. Confirm by running:
 
     vagrant ssh
 
+*Optional*: if running Validator through a web server (see Optional section
+below), uncomment the following line in the generated `Vagrantfile` to enable
+port forwarding:
+
+    config.vm.forward_port 80, 8080
+
+... then reload the virtual machine with:
+
+    vagrant reload
+
 ## Installing Validator
 
 ### 1. Installing Validator dependencies
@@ -111,7 +121,7 @@ Validator.
 
 1. Install Validator.nu's build dependencies:
 
-    sudo apt-get install mercurial subversion default-jre
+    sudo apt-get install mercurial subversion default-jdk
 
 2. Install Validator.nu:
 
@@ -120,7 +130,25 @@ Validator.
     hg clone https://bitbucket.org/validator/build build
     export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
     python build/build.py all
+
+*Note*, if you encounter a Java exception, run the build script again:
+
     python build/build.py all
+
+Validator.nu should now be running on port 8888:
+
+    INFO::Started SocketConnector@0.0.0.0:8888
+
+Confirm by killing the server (CTRL+C) and re-starting it with:
+
+    python build/build.py run
+
+3. Configure Validator to use the Validator.nu engine by uncommenting the
+   following line from `/etc/w3c/validator.conf`:
+
+    <External>
+    HTML5 = http://localhost:8888/html5/
+    </External>
 
 ### Set up a web server
 
