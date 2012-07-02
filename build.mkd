@@ -179,5 +179,5 @@ see it running.
   [vagrant]: http://vagrantup.com/
   [vagrantdl]: http://downloads.vagrantup.com/tags/v1.0.3
   [validator.nu]: http://about.validator.nu/
-  [locahost]: http://localhost/w3c-validator/
-  [locahost8080]: http://localhost:8080/w3c-validator/
+  [localhost]: http://localhost/w3c-validator/
+  [localhost8080]: http://localhost:8080/w3c-validator/
