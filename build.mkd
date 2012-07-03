@@ -21,7 +21,7 @@ We will be using a [Vagrant][] managed VirtualBox install as a base system.
 
         vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
-3.- Create an instance of Ubuntu Precise with:
+3. Create an instance of Ubuntu Precise with:
 
         mkdir validator
         cd validator
