@@ -154,17 +154,42 @@ Validator.
 
         python build/build.py run
 
-3. Install Validator.nu system-wide:
-
-        cd ..
-        sudo mv validator-nu /usr/local/
-
 4. Configure Validator to use the Validator.nu engine by adding the following
    line in `/etc/w3c/validator.conf`:
 
         <External>
         HTML5 = http://localhost:8888/
         </External>
+
+#### Running Validator.nu at system start up
+
+1. Create an unprivileged user account:
+
+        sudo groupadd validator-nu
+        sudo useradd -r -c "Validator.nu daemon" -g validator-nu \
+          -d /usr/local/validator-nu -s /bin/false validator-nu
+
+2. Install Validator.nu system-wide:
+
+        sudo mv ~/build/validator-nu /usr/local/
+        sudo chown -R validator-nu:validator-nu /usr/local/validator-nu
+
+3. Create a launch script:
+
+        cat << EOF | sudo tee /usr/local/bin/validator-nu
+        #!/bin/sh
+        cd /usr/local/validator-nu
+        su -s '/bin/sh' -c 'python build/build.py run >logs/validator-nu.log 2>&1' validator-nu
+        EOF
+        sudo chmod +x /usr/local/bin/validator-nu
+
+4. Edit `/etc/rc.local` add add the following line before `exit 0`:
+
+        /usr/local/bin/validator-nu &
+
+After rebooting, Validator.nu should be running. Confirm by running:
+
+    pgrep -fl java | grep validator
 
 ### Set up a web server
 
