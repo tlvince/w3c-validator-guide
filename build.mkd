@@ -183,9 +183,9 @@ Validator.
         EOF
         sudo chmod +x /usr/local/bin/validator-nu
 
-4. Edit `/etc/rc.local` add add the following line before `exit 0`:
+4. Edit `/etc/rc.local` and add the following line before `exit 0`:
 
-        /usr/local/bin/validator-nu &
+        /usr/local/bin/validator-nu
 
 After rebooting, Validator.nu should be running. Confirm by running:
 
