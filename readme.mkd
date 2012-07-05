@@ -219,6 +219,12 @@ see it running.
 The author would like to thank the Validator Team's [official install
 guide][official], which forms the basis of much of this document.
 
+## License
+
+Copyright 2012 Tom Vincent <http://tlvince.com/contact/>, licensed under the
+[Creative Commons Attribution 3.0 Unported License][cc].
+
+  [cc]: http://creativecommons.org/licenses/by/3.0/
   [home]: http://validator.w3.org/
   [OpenSP]: http://sourceforge.net/projects/openjade/
   [vagrant]: http://vagrantup.com/
