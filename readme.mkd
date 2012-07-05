@@ -1,0 +1,12 @@
+# W3C Validator Guide
+
+A simple step-by-step walkthrough for building and installing the [W3C Markup
+Validation Service][1] from source.
+
+## License
+
+Copyright 2012 Tom Vincent <http://tlvince.com/contact/>, licensed under the
+[Creative Commons Attribution 3.0 Unported License][2].
+
+  [1]: http://validator.w3.org/
+  [2]: http://creativecommons.org/licenses/by/3.0/
