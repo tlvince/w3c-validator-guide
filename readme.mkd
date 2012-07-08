@@ -118,7 +118,7 @@ When prompted, type:
 
 3. Test the Validator's command line tool:
 
-        /usr/local/validator/httpd/cgi-bin/check uri=http://www.w3.org
+        /usr/local/validator/cgi-bin/check uri=http://www.w3.org
 
 If some HTML output is printed to screen, Validator is installed and ready to
 go.
