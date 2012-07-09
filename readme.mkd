@@ -189,7 +189,7 @@ Validator.
 
 After rebooting, Validator.nu should be running. Confirm by running:
 
-    pgrep -fl java | grep validator
+    sudo ps aux | grep validator-nu
 
 ### Set up a web server
 
