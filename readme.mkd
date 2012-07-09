@@ -73,7 +73,7 @@ port forwarding:
 
 3. Install validator dependencies:
 
-        sudo apt-get install libosp-dev libxml2-dev
+        sudo apt-get install libosp-dev libxml2-dev zlib1g-dev
 
 4. Install required Perl Modules:
 
