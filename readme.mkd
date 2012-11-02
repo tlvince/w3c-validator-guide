@@ -224,12 +224,12 @@ guide][official], which forms the basis of much of this document.
 Copyright 2012 Tom Vincent <http://tlvince.com/contact/>, licensed under the
 [Creative Commons Attribution 3.0 Unported License][cc].
 
-Need to site-wide validate your site? Like beautiful reports? Try [W3CLove][]!
+Need to site-wide validate your site? Like beautiful reports? Try [MarkupValidator][]!
 
   [cc]: http://creativecommons.org/licenses/by/3.0/
   [home]: http://validator.w3.org/
   [OpenSP]: http://sourceforge.net/projects/openjade/
-  [W3CLove]: http://w3clove.com
+  [MarkupValidator]: http://markupvalidator.com
   [vagrant]: http://vagrantup.com/
   [vagrantdl]: http://downloads.vagrantup.com/tags/v1.0.3
   [validator.nu]: http://about.validator.nu/
