@@ -88,6 +88,8 @@ When prompted, type:
 
 ### 2. Install Validator
 
+Note: optionally on this step you can choose to download a more up-to-date DTD library from the development repository at http://dvcs.w3.org/hg/markup-validator/file/tip/htdocs/sgml-lib
+
 1. Download the Validator and the sgml-lib DTD library:
 
         cd ~/build
