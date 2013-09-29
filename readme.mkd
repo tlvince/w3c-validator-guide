@@ -134,7 +134,7 @@ Validator.
 
 1. Install Validator.nu's build dependencies:
 
-        sudo apt-get install mercurial subversion default-jdk
+        sudo apt-get install git mercurial subversion default-jdk
 
 2. Build Validator.nu:
 
