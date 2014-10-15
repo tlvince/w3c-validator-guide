@@ -138,9 +138,9 @@ Validator.
 
 2. Build Validator.nu:
 
-        mkdir -p ~/build/validator-nu
-        cd ~/build/validator-nu
-        hg clone https://bitbucket.org/validator/build build
+        cd ~/build
+        git clone https://github.com/validator/validator.git validator-nu
+        cd validator-nu
         export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
         python build/build.py all
 
