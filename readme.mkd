@@ -63,7 +63,7 @@ port forwarding:
         cd ~
         mkdir build
         cd build
-        wget http://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz
+        wget https://cloud.github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz
         tar -xzf tidyp-1.04.tar.gz
         cd tidyp-1.04
         ./configure
@@ -134,13 +134,13 @@ Validator.
 
 1. Install Validator.nu's build dependencies:
 
-        sudo apt-get install git mercurial subversion default-jdk
+        sudo apt-get install git default-jdk
 
 2. Build Validator.nu:
 
-        mkdir -p ~/build/validator-nu
-        cd ~/build/validator-nu
-        hg clone https://bitbucket.org/validator/build build
+        cd ~/build
+        git clone https://github.com/validator/validator.git validator-nu
+        cd validator-nu
         export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
         python build/build.py all
 
