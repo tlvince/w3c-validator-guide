@@ -43,7 +43,7 @@ Your Ubuntu virtual machine should now be up and running. Confirm by running:
 below), uncomment the following line in the generated `Vagrantfile` to enable
 port forwarding:
 
-    config.vm.forward_port 80, 8080
+    config.vm.network "forwarded_port", guest: 80, host: 8080
 
 ... then reload the virtual machine with:
 
@@ -56,16 +56,17 @@ port forwarding:
 1. Install build packages:
 
         sudo apt-get update
-        sudo apt-get install build-essential
+        sudo apt-get install build-essential libtool automake
 
 2. Install tidyp:
 
         cd ~
         mkdir build
         cd build
-        wget https://cloud.github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz
+        wget https://github.com/petdance/tidyp/archive/1.04.tar.gz
         tar -xzf tidyp-1.04.tar.gz
         cd tidyp-1.04
+        ./acgo
         ./configure
         make
         sudo make install
@@ -73,7 +74,7 @@ port forwarding:
 
 3. Install validator dependencies:
 
-        sudo apt-get install libosp-dev libxml2-dev zlib1g-dev
+        sudo apt-get install libosp-dev libxml2-dev zlib1g-dev libwww-perl
 
 4. Install required Perl Modules:
 
@@ -93,16 +94,14 @@ Note: optionally on this step you can choose to download a more up-to-date DTD l
 1. Download the Validator and the sgml-lib DTD library:
 
         cd ~/build
-        wget http://validator.w3.org/validator.tar.gz http://validator.w3.org/sgml-lib.tar.gz
-        tar -xzf validator.tar.gz
-        tar -xzf sgml-lib.tar.gz
+        wget https://github.com/w3c/markup-validator/archive/validator-1_3-release.tar.gz
+        tar -xzf validator-1_3-release.tar.gz
 
 2. Install the Validator:
 
         sudo mkdir -p /usr/local/validator
-        sudo mv validator-1.3/httpd/cgi-bin /usr/local/validator
-        sudo mv validator-1.3/{htdocs,share,httpd} /usr/local/validator
-        sudo mv validator-1.1/htdocs/sgml-lib /usr/local/validator/htdocs/
+        sudo mv markup-validator-validator-1_3-release/httpd/cgi-bin /usr/local/validator
+        sudo mv markup-validator-validator-1_3-release/{htdocs,share,httpd} /usr/local/validator
 
 ### 3. Configure and test Validator
 
@@ -230,7 +229,7 @@ Copyright 2012 Tom Vincent <http://tlvince.com/contact/>, licensed under the
   [home]: http://validator.w3.org/
   [OpenSP]: http://sourceforge.net/projects/openjade/
   [vagrant]: http://vagrantup.com/
-  [vagrantdl]: http://downloads.vagrantup.com/tags/v1.0.3
+  [vagrantdl]: https://www.vagrantup.com/downloads.html
   [validator.nu]: http://about.validator.nu/
   [localhost]: http://localhost/w3c-validator/
   [localhost8080]: http://localhost:8080/w3c-validator/
